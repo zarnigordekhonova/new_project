@@ -1,0 +1,13 @@
+<title>Home Page</title>
+
+<h1>Welcome to our bookshop:)</h1><br>
+
+<h3>HOME PAGE</h3><br>
+
+<body>
+{% for category in categories %}
+<a href="{% url 'Books:get_books' category.pk %}" >{{ category.genre }}</a><br>
+{% endfor %}
+<br>
+<a href="{% url 'Books:add_books' %}"><b>Add Books</b></a><br>
+</body>
