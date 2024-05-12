@@ -11,7 +11,7 @@ class reviewsForm(ModelForm):
         model = reviews
         fields = '__all__'
 
-class authorForm(ModelForm):
-    class Meta:
-        model = author
-        fields = '__all__'
+# class authorForm(ModelForm):
+#     class Meta:
+#         model = author
+#         fields = '__all__'

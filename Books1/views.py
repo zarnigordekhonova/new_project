@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import books, book_author, book_category, reviews, author
-from .forms import booksForm, reviewsForm, authorForm
+from .models import books, book_category, reviews
+from .forms import booksForm, reviewsForm
 
 
 # Create your views here.
@@ -18,6 +18,23 @@ def get_books(request, pk):
         'products': products
     }
     return render(request, 'books.html', context=context)
+
+
+def get_reviews(request, pk):
+    items = reviews.objects.filter(book_title=pk)
+    context = {
+        'items': items
+    }
+    return render(request, 'reviews.html', context)
+
+def review_detail(request, pk):
+    item = reviews.objects.get(pk=pk)
+    context = {
+        'item' : item
+    }
+    return render(request, 'review_detail.html', context=context)
+
+
 
 def detail(request, pk):
     product = books.objects.get(pk=pk)
@@ -55,4 +72,18 @@ def delete_books(request, pk):
         return redirect('Books:get_info')
 
     return render(request, 'delete.html', {'product': product})
+
+
+def add_review(request, pk):
+    # data = reviews.objects.get(book_title=pk)
+    form = reviewsForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('Books:get_info')
+    context = {
+        'form': form
+    }
+    return render(request, 'add_review.html', context=context)
+
+
 

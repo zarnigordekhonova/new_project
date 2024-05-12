@@ -12,8 +12,11 @@ ISBN: {{ product.ISBN }}<br>
 PRICE: {{ product.price }}<br>
 YEAR: {{ product.year }}<br>
 GENRE: {{ product.genre }}<br>
-
 <br>
+<a href="{% url 'Books:add_review' product.pk%}"><button>ADD REVIEW</button></a><br>
+<a href="{% url 'Books:get_reviews' product.pk %}"><button>GET REVIEW</button></a><br>
+
+
 <a href="{% url 'Books:update_books' product.pk%}"><button>UPDATE</button></a><br>
 <a href="{% url 'Books:delete_books' product.pk%}"><button>DELETE</button></a><br>
 <br>

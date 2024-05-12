@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body>
+USER: {{ item.user }}<br>
+BOOK TITLE: {{ item.book_title }}<br>
+STAR GIVEN: {{ item.star_given }}<br>
+COMMENT: {{ item.comment }}<br>
+
+
+<a href="{% url 'Books:detail' item.book_title.pk %}" ><button>HOME</button></a><br>
+<br>
+</body>
+</html>

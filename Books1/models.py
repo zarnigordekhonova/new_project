@@ -1,6 +1,6 @@
 from django.db import models
-
 # Create your models here.
+
 
 class book_category(models.Model):
     genre = models.CharField(max_length=100)
@@ -42,11 +42,11 @@ class author(models.Model):
         return f'{self.name} {self.surname}'
 
 
-class book_author(models.Model):
-    author = models.ForeignKey(to="author", on_delete=models.CASCADE)
-    book = models.ForeignKey(to="books", on_delete=models.CASCADE)
-    review = models.ForeignKey(to="reviews", on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.author} {self.book}'
+# class book_author(models.Model):
+#     author = models.ForeignKey(to="author", on_delete=models.CASCADE)
+#     book = models.ForeignKey(to="books", on_delete=models.CASCADE)
+#     review = models.ForeignKey(to="reviews", on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return f'{self.author} {self.book}'
 
